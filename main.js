@@ -83,16 +83,17 @@ if (false) {
         ); // true
         // Whereas when using a non-arrow function, 'this' refers to the currentTarget
     })
+
+    // Exercise: Last In Queue
+    document.querySelectorAll('.doggo.fighter').forEach(node => {
+        node.addEventListener('click', event => {
+            const doggoNode = event.currentTarget;
+            const rosterNode = doggoNode.closest('.roster');
+            rosterNode.append(doggoNode)
+        })
+    })
 }
 
-// Exercise: Last In Queue
-document.querySelectorAll('.doggo.fighter').forEach(node => {
-    node.addEventListener('click', event => {
-        const doggoNode = event.currentTarget;
-        const rosterNode = doggoNode.closest('.roster');
-        rosterNode.append(doggoNode)
-    })
-})
 
 // Events and the loop
 // http://latentflip.com/loupe/
@@ -120,3 +121,29 @@ if (false) {
 
     a();
 }
+
+// Event Events
+
+// Demo: Mouse & Doggo
+
+document.querySelectorAll('.doggo.fighter').forEach(doggoNode => {
+    // dblclick
+    doggoNode.addEventListener('dblclick', event => {
+        console.log(`${event.currentTarget.id} was double clicked`);
+        event.currentTarget.classList.toggle('inverted')
+    });
+    // mousedown => when you click and hold your mouse
+    doggoNode.addEventListener('mousedown', event => {
+        event.currentTarget.classList.add('flipped');
+    });
+    // mouseup => releasing your mouse click after clicking
+    doggoNode.addEventListener('mouseup', event => {
+        event.currentTarget.classList.remove('flipped');
+    });
+
+    // mouseleave
+    doggoNode.addEventListener('mouseleave', event => {
+        event.currentTarget.classList.remove('flipped');
+    })
+
+})

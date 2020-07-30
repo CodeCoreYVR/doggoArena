@@ -165,3 +165,11 @@ html * {
 .doggo.dead {
   opacity: 0.2;
 }
+
+.inverted {
+  filter: invert(100%);
+}
+
+.flipped {
+  transform: rotate(180deg);
+}
