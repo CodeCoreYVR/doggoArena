@@ -158,3 +158,15 @@ document.querySelectorAll('.doggo.fighter').forEach(doggoNode => {
         event.currentTarget.classList.remove('hovered')
     });
 })
+
+// Exercise: Where is my cursor?
+const coordsDiv = document.createElement('div');
+coordsDiv.style.position = 'fixed';
+coordsDiv.style.bottom = '0';
+coordsDiv.style.backgroundColor = "white";
+coordsDiv.style.fontSize = '2em';
+document.body.append(coordsDiv);
+document.addEventListener('mousemove', event => {
+    const position = `(${event.clientX}, ${event.clientY})`;
+    coordsDiv.innerText = position;
+});
