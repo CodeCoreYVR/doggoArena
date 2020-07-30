@@ -170,3 +170,25 @@ document.addEventListener('mousemove', event => {
     const position = `(${event.clientX}, ${event.clientY})`;
     coordsDiv.innerText = position;
 });
+
+// Form & inpute events
+
+// Demo: Type Loudly & Explode on Submi
+const random = n => Math.ceil(Math.random() * n)
+const keySound = () => new Audio(`sounds/vintage-keyboard-${random(5)}.wav`);
+document.querySelectorAll('input').forEach(inputNode => {
+    inputNode.addEventListener('input', event => {
+        // console.log(event.currentTarget.value);
+        keySound().play();
+    })
+})
+
+const explosionSound = () => new Audio("sounds/small-explosion.wav");
+document.querySelector('form').addEventListener('submit', event => {
+    event.preventDefault();
+    // preventDefault() prevents the form from being submitted
+    // this prevents the forms browser default behaviour
+    // When used with forms, the form data will not be submitted somewhere
+    // when used with links, the href will not be followed
+    explosionSound().play();
+})
