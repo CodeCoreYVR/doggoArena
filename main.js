@@ -66,3 +66,19 @@ if (p instanceof Node) {
     // so since null is not an instanceof Node, this will never execute
     p.addEventListener('click', () => console.log('this was a p node'));
 }
+
+toxicTeam.addEventListener('click', event => {
+    console.log('target: ', event.target);
+    console.log('currentTarget: ', event.currentTarget);
+    console.log(`cursor position: (${event.clientX}, ${event.clientY})`);
+    console.log('arrow this === currentTarget ', this === event.currentTarget);
+    // 'this' is the window when using arrow function for the callback
+});
+
+teamSalmon.addEventListener('click', function (event) {
+    console.log(
+        "non-arrow this === currentTarget ",
+        this === event.currentTarget
+    ); // true
+    // Whereas when using a non-arrow function, 'this' refers to the currentTarget
+})
