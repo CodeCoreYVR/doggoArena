@@ -30,29 +30,39 @@ const teamSalmon = document.querySelector(".team.salmon");
 //     })
 // })
 
-teamSalmon.addEventListener('click', (event) => {
-    console.log('Team Salmon was clicked!');
-    console.log('event: ', event);
-    // The 'event' object contains a host of useful information
-    // about the triggered event
-    // including (but not limitted to) the position of the cursor,
-    // which modifier was held at the time (e.g. shift, alt, cmd, etc)
-    // which node was clicked, at what datetime the event was triggered
-    // etc....
-    console.log('==========================');
-    console.log('type: ', event.type);
+if (false) {
+    teamSalmon.addEventListener('click', (event) => {
+        console.log('Team Salmon was clicked!');
+        console.log('event: ', event);
+        // The 'event' object contains a host of useful information
+        // about the triggered event
+        // including (but not limitted to) the position of the cursor,
+        // which modifier was held at the time (e.g. shift, alt, cmd, etc)
+        // which node was clicked, at what datetime the event was triggered
+        // etc....
+        console.log('==========================');
+        console.log('type: ', event.type);
 
-    // The 'target' property refers to the node that originally
-    // triggered the event. In the case of a 'click' event,
-    // that is the node where the cursor was located at 
-    // the time of the click.
-    // It will always be a descendant of the currentTarget node,
-    // Or the currentTarget node.
-    console.log('target: ', event.target);
-    // The 'currentTarget' property refers to the node that 
-    // calls the 'addEventListener' method.
-    // It si the 'listening node'.
-    // In this case, it is always going to be 'teamSalmon'
-    console.log('currentTarget: ', event.currentTarget);
-    console.log('==============================');
-})
+        // The 'target' property refers to the node that originally
+        // triggered the event. In the case of a 'click' event,
+        // that is the node where the cursor was located at 
+        // the time of the click.
+        // It will always be a descendant of the currentTarget node,
+        // Or the currentTarget node.
+        console.log('target: ', event.target);
+        // The 'currentTarget' property refers to the node that 
+        // calls the 'addEventListener' method.
+        // It si the 'listening node'.
+        // In this case, it is always going to be 'teamSalmon'
+        console.log('currentTarget: ', event.currentTarget);
+        console.log('==============================');
+    })
+}
+
+// Instance of Node
+const p = document.querySelector('p');
+// When document.querySelector finds nothing, it returns null
+if (p instanceof Node) {
+    // so since null is not an instanceof Node, this will never execute
+    p.addEventListener('click', () => console.log('this was a p node'));
+}
