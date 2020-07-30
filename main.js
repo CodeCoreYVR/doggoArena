@@ -235,3 +235,21 @@ document.addEventListener('DOMContentLoaded', () => {
             blankDoggo.style.border = `medium solid ${formData.get('team-name')}`
         })
 })
+
+// Keyboard events
+document.addEventListener('keydown', event => {
+    console.log(event);
+    const {
+        currentTarget,
+        target,
+        keyCode,
+        altKey,
+        shiftKey,
+        metaKey,
+        key
+    } = event;
+    console.log('keyCode: ', keyCode);
+    if (altKey && shiftKey && keyCode === 78) {
+        window.location.href = "http://nyan.cat";
+    }
+})
