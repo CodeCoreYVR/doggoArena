@@ -193,14 +193,45 @@ document.querySelector('form').addEventListener('submit', event => {
     explosionSound().play();
 });
 
-// Exercise: Appicant's avatar
+if (false) {
+    // Exercise: Appicant's avatar
+    const applicantPreview = document.querySelector('#applicant-preview .doggo.blank');
 
-const applicantPreview = document.querySelector('#applicant-preview .doggo.blank');
+    document
+        .querySelector('input[name="picture-url"]')
+        .addEventListener('input', event => {
+            const imageUrl = event.currentTarget.value;
+            // console.log('imageUrl: ', imageUrl);
+            applicantPreview.style.backgroundImage = `url(${imageUrl})`;
+        })
+}
 
-document
-    .querySelector('input[name="picture-url"]')
-    .addEventListener('input', event => {
-        const imageUrl = event.currentTarget.value;
-        // console.log('imageUrl: ', imageUrl);
-        applicantPreview.style.backgroundImage = `url(${imageUrl})`;
-    })
+// Create Doggo on Submit
+document.addEventListener('DOMContentLoaded', () => {
+    document
+        .querySelector("#application-form")
+        .addEventListener('submit', event => {
+            event.preventDefault();
+            const formNode = event.currentTarget;
+            // To easily access all of the input field values within a form
+            // use the FormData constructor like below, passing it the form
+            // as an argument
+            const formData = new FormData(formNode);
+            formData.get('name');
+            // this 👆 search through the form input and finds an input 
+            // with name="name" and gets whatever value passed down to it
+            formData.get('picture-url');
+            formData.get('team-name');
+
+            // we can also use formData.entries() to get an 'itrator' for looping
+            // over the input fields using a for..of loop
+            // for (let field of formData.entries()) {
+            //     console.log("input name: ", field[0], "input value: ", field[1])
+            // }
+
+            const blankDoggo = document.querySelector('#applicant-preview .doggo.blank');
+            blankDoggo.style.backgroundImage = `url(${formData.get('picture-url')})`;
+            blankDoggo.querySelector('h1').innerText = formData.get('name');
+            blankDoggo.style.border = `medium solid ${formData.get('team-name')}`
+        })
+})
