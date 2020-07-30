@@ -191,4 +191,16 @@ document.querySelector('form').addEventListener('submit', event => {
     // When used with forms, the form data will not be submitted somewhere
     // when used with links, the href will not be followed
     explosionSound().play();
-})
+});
+
+// Exercise: Appicant's avatar
+
+const applicantPreview = document.querySelector('#applicant-preview .doggo.blank');
+
+document
+    .querySelector('input[name="picture-url"]')
+    .addEventListener('input', event => {
+        const imageUrl = event.currentTarget.value;
+        // console.log('imageUrl: ', imageUrl);
+        applicantPreview.style.backgroundImage = `url(${imageUrl})`;
+    })
