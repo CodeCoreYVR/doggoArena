@@ -93,3 +93,30 @@ document.querySelectorAll('.doggo.fighter').forEach(node => {
         rosterNode.append(doggoNode)
     })
 })
+
+// Events and the loop
+// http://latentflip.com/loupe/
+
+if (false) {
+    function c() {
+        console.log('c');
+        setTimeout(function getFavAnimal() {
+            console.log('Wolf');
+        }, 0)
+    }
+
+    function b() {
+        console.log('b');
+        setTimeout(function getName() {
+            console.log("Hindreen")
+        }, 0);
+        c();
+    }
+
+    function a() {
+        console.log('a');
+        b();
+    }
+
+    a();
+}
