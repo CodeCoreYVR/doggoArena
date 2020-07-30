@@ -147,3 +147,14 @@ document.querySelectorAll('.doggo.fighter').forEach(doggoNode => {
     })
 
 })
+
+// Crouching Mouse Hidden Doggo
+
+document.querySelectorAll('.doggo.fighter').forEach(doggoNode => {
+    doggoNode.addEventListener('mouseenter', event => {
+        event.currentTarget.classList.add('hovered')
+    });
+    doggoNode.addEventListener('mouseleave', event => {
+        event.currentTarget.classList.remove('hovered')
+    });
+})
